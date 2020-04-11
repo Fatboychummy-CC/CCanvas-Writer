@@ -53,4 +53,5 @@ writer("Hello world!", 0, 10, {255, 255, 255}, {0, 0, 0})
 ```
 
 The above program will make the following:
+
 ![Example image](example.png)
