@@ -3,7 +3,7 @@
   Feel free to edit and do stuff with it.  Open source is open source.
 
   Using this
-    (or the minified version, found at <Insert link here once uploaded>):
+    (or the minified version, found at https://github.com/fatboychummy/CCanvas-Writer/blob/master/Minified.lua):
 
   local writer = require("whateveryousavedthisfileas")
   writer(
@@ -39,6 +39,7 @@
 
   Note: this version requires the font to be saved in the same directory as this
   program, and named "font[.lua]"
+  The font can be found at https://github.com/fatboychummy/CCanvas-Writer/blob/master/font.lua
 
   The minified version does not have this requirement.
 ]]
