@@ -35,12 +35,12 @@ writer(
 
 ## Minified (If you only want to use this to write to the screen):
 
-1. Run `wget https://raw.githubusercontent.com/fatboychummy/Canvas-Writer/master/Minified.lua writer.lua` in the shell
+1. Run `wget https://raw.githubusercontent.com/fatboychummy/CCanvas-Writer/master/Minified.lua writer.lua` in the shell
 
 ## Non minified (If you want to edit the api to do something else):
 
-1. Run `wget https://raw.githubusercontent.com/fatboychummy/Canvas-Writer/master/CanvasWriter.lua writer.lua` in the shell
-2. Run `wget https://raw.githubusercontent.com/fatboychummy/Canvas-Writer/master/font.lua font.lua` in the shell
+1. Run `wget https://raw.githubusercontent.com/fatboychummy/CCanvas-Writer/master/CCanvasWriter.lua writer.lua` in the shell
+2. Run `wget https://raw.githubusercontent.com/fatboychummy/CCanvas-Writer/master/font.lua font.lua` in the shell
 
 
 ## Both:
