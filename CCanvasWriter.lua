@@ -107,7 +107,7 @@ local function write(arg, x, y, fg, bg)
       for x = sxPos, sxPos + 5 do
         local val = xtbl[x]
         if val == 1 then
-          local tmp = canvas.addRectangle(xpos, ypos, 1, 1)
+          local tmp = canvas.addDot({xpos + 0.5, ypos + 0.5})
           tmp.setColor(fr, fg_, fb)
         end
         xpos = xpos + 1
