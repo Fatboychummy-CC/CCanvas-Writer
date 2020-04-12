@@ -91,6 +91,20 @@ local function write(arg, x, y, fg, bg)
 
   local fr, fg_, fb = table.unpack(fg, 1, 3)
   local br, bg_, bb = table.unpack(bg, 1, 3)
+  local ret = {background = {n = 0}, text = {n = 0}}
+  function ret.remove()
+    for i = 1, ret.background.n do
+      ret.background[i].remove()
+    end
+    for i = 1, ret.text.n do
+      ret.text[i].remove()
+    end
+  end
+
+  local function ins(t, i)
+    t.n = t.n + 1
+    t[t.n] = i
+  end
 
   local char = 0
   for letter in arg:gmatch(".") do
@@ -99,16 +113,18 @@ local function write(arg, x, y, fg, bg)
     local syPos = 2 + 9 * math.floor(num / 16) + 2 * math.floor(num / 16)
     local ypos = y
     local xpos = x + (6 * char)
-    local tmp = canvas.addRectangle(xpos, ypos, 6, 9)
-    tmp.setColor(br, bg_, bb)
+    local tmp1 = canvas.addRectangle(xpos, ypos, 6, 9)
+    tmp1.setColor(br, bg_, bb)
+    ins(ret.background, tmp1)
     for y = syPos, syPos + 8 do
       local xtbl = a[y]
       xpos = x + 6*char
       for x = sxPos, sxPos + 5 do
         local val = xtbl[x]
         if val == 1 then
-          local tmp = canvas.addDot({xpos + 0.5, ypos + 0.5})
-          tmp.setColor(fr, fg_, fb)
+          local tmp2 = canvas.addDot({xpos + 0.5, ypos + 0.5})
+          tmp2.setColor(fr, fg_, fb)
+          ins(ret.text, tmp2)
         end
         xpos = xpos + 1
       end
@@ -116,6 +132,8 @@ local function write(arg, x, y, fg, bg)
     end
     char = char + 1
   end
+
+  return ret
 end
 
 return write
