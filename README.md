@@ -24,7 +24,7 @@ writer(
                {0, 255, 0} is blue
                {0, 0, 255} is green
       OR: a colo[u]rs api color
-    textColor: a table of 3 rgb values [0-255] for the background color
+    backgroundColor: a table of 3 rgb values [0-255] for the background color
                {255, 0, 0} is red
                {0, 255, 0} is blue
                {0, 0, 255} is green
