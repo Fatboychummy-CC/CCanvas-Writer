@@ -26,7 +26,7 @@
                {0, 255, 0} is blue
                {0, 0, 255} is green
       OR: a colo[u]rs api color
-    textColor: a table of 3 rgb values [0-255] for the background color
+    backgroundColor: a table of 3 rgb values [0-255] for the background color
                {255, 0, 0} is red
                {0, 255, 0} is blue
                {0, 0, 255} is green
@@ -66,7 +66,7 @@ local colorConvert = {
   [colors.black]     = {17 , 17 , 17 }
 }
 
-local function write(arg, x, y, fg, bg)
+local function write(arg, x, y, fg, bg, alpha)
   arg = tostring(arg)
   expect(2, x, "number")
   expect(3, y, "number")
@@ -88,6 +88,7 @@ local function write(arg, x, y, fg, bg)
   if type(bg) ~= "table" then
     error(string.format("Bad argument #5: Expected table or number, got %s.", bg))
   end
+  expect(6, alpha, "number", "nil")
 
   local fr, fg_, fb = table.unpack(fg, 1, 3)
   local br, bg_, bb = table.unpack(bg, 1, 3)
@@ -114,7 +115,7 @@ local function write(arg, x, y, fg, bg)
     local ypos = y
     local xpos = x + (6 * char)
     local tmp1 = canvas.addRectangle(xpos, ypos, 6, 9)
-    tmp1.setColor(br, bg_, bb)
+    tmp1.setColor(br, bg_, bb, alpha or 255)
     ins(ret.background, tmp1)
     for y = syPos, syPos + 8 do
       local xtbl = a[y]
@@ -123,7 +124,7 @@ local function write(arg, x, y, fg, bg)
         local val = xtbl[x]
         if val == 1 then
           local tmp2 = canvas.addDot({xpos + 0.5, ypos + 0.5})
-          tmp2.setColor(fr, fg_, fb)
+          tmp2.setColor(fr, fg_, fb, alpha or 255)
           ins(ret.text, tmp2)
         end
         xpos = xpos + 1
